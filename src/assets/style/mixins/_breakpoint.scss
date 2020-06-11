@@ -1,0 +1,42 @@
+@import '../variables/breakpoints';
+
+@mixin breakpoint($point) {
+  @if $point == mobile {
+    @media screen and (max-width: map-get($breakpoints, mobile)) { @content; }
+  }
+  @if $point == mobile-portrait {
+    @media screen and (max-width: map-get($breakpoints, mobile)) and (orientation: portrait) { @content; }
+  }
+  
+  @if $point == mobile-landscape {
+    @media screen and (max-width: map-get($breakpoints, mobile)) and (orientation: landscape) { @content; }
+  }
+  
+  @if $point == tablet {
+    @media screen and (min-width: map-get($breakpoints, mobile)) /*and (max-width: map-get($breakpoints, tablet))*/ { @content; }
+  }
+  
+  @if $point == tablet-portrait {
+    @media screen and (min-width: map-get($breakpoints, mobile)) /*and (max-width: map-get($breakpoints, tablet))*/ and (orientation: portrait) { @content; }
+  }
+  
+  @if $point == tablet-landscape {
+    @media screen and (min-width: map-get($breakpoints, mobile)) /*and (max-width: map-get($breakpoints, tablet))*/ and (orientation: landscape) { @content; }
+  }
+  
+  @if $point == laptop {
+    @media screen and (min-width: map-get($breakpoints, laptop)) { @content; }
+  }
+ 
+  @if $point == desktop {
+    @media screen and (min-width: map-get($breakpoints, desktop)) { @content; }
+  }
+
+  @if $point == portrait {
+    @media screen and (max-width: map-get($breakpoints, laptop)) and (orientation: portrait) { @content; }
+  }
+
+  @if $point == landscape {
+    @media screen and (max-width: map-get($breakpoints, laptop)) and (orientation: landscape) { @content; }
+  }  
+}

@@ -1,0 +1,99 @@
+@import '../../assets/style/mixins/breakpoint';
+@import '../../assets/style/variables/spacing';
+
+
+$cardColorTop: rgb(255, 243, 177);
+$cardColorBottom: rgb(255, 225, 55);
+$middle: rgb(255, 245, 196);
+
+.pageContainer {
+
+  background: $middle;
+
+  @include breakpoint(portrait) {
+    h2 {
+      color: rgb(194, 155, 47);
+      font-size: 8vw;
+      text-align: center;
+      border-bottom: 1px solid grey;
+      padding-top: $smSpace; 
+      margin: 0 $mdSpace $lgSpace $mdSpace;
+      font-family: Shadows Into Light;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    p {
+      font-size: 4vw;
+      text-align: center;
+      padding: 0 $mdSpace;
+      margin-bottom: $mdSpace;
+      font-family: Architects Daughter;
+      color:rgb(134, 93, 16);
+
+    }
+  }
+
+  @include breakpoint(landscape) {
+    width: 90%;
+    margin: 0 auto;
+
+    &#services {
+      border-radius: 10px 10px 0 0;
+    }
+
+    h2 {
+      color: rgb(194, 155, 47);
+      font-size: 8vw;
+      text-align: center;
+      border-bottom: 1px solid grey;
+      padding-top: $smSpace; 
+      margin: 0 $mdSpace $lgSpace $mdSpace;
+      font-family: Shadows Into Light;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    p {
+      font-size: 4vw;
+      text-align: center;
+      padding: 0 $mdSpace;
+      margin-bottom: $mdSpace;
+      font-family: Architects Daughter;
+      color:rgb(134, 93, 16);
+
+    }
+  }
+
+  @include breakpoint(laptop) {
+    width: 70%;
+    margin: 0 auto;
+    padding-bottom: $smSpace;
+
+    &#services {
+      border-radius: 10px 10px 0 0;
+    }
+
+    h2 {
+      color: rgb(194, 155, 47);
+      font-size: 5vw;
+      text-align: center;
+      border-bottom: 1px solid grey;
+      padding-top: $smSpace; 
+      margin: 0 $mdSpace $mdSpace $mdSpace;
+      font-family: Shadows Into Light;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    p {
+      font-size: 2vw;
+      text-align: center;
+      padding: 0 $mdSpace;
+      margin-bottom: $mdSpace;
+      font-family: Architects Daughter;
+      color:rgb(134, 93, 16);
+
+    }
+  }
+}

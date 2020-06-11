@@ -1,0 +1,9 @@
+$spacing: (
+  sm: 2vw,
+  md: 5vw,
+  lg: 10vw,
+);
+
+$smSpace: map-get($spacing, sm);
+$mdSpace: map-get($spacing, md);
+$lgSpace: map-get($spacing, lg);

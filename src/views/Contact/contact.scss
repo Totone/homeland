@@ -1,0 +1,13 @@
+@import '../../assets/style/mixins/breakpoint';
+@import '../../assets/style/mixins/flex';
+@import '../../assets/style/mixins/boxSize';
+@import '../../assets/style/variables/spacing';
+
+
+#contact {
+  .content {
+    @include breakpoint(laptop) {
+      @include flex(row, space-between, center);
+    }
+  }
+}

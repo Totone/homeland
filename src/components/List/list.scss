@@ -1,0 +1,26 @@
+@import '../../assets/style/mixins/breakpoint';
+@import '../../assets/style/mixins/flex';
+@import '../../assets/style/variables/spacing';
+
+$smSpace: map-get($spacing, sm);
+
+.cardsList {
+  @each $bp in portrait, landscape {
+    @include breakpoint($bp) {
+      @include flex(row, flex-start, space-between, true);
+      padding: $smSpace;
+      margin: 0 $smSpace;
+      overflow-x: scroll;
+      -webkit-overflow-scrolling: touch;
+    }
+  }
+  @include breakpoint(laptop) {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  }
+}

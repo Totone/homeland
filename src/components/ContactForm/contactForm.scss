@@ -1,0 +1,128 @@
+@import '../../assets/style/mixins/breakpoint';
+@import '../../assets/style/mixins/flex';
+@import '../../assets/style/mixins/boxSize';
+@import '../../assets/style/variables/spacing';
+
+$cardColorTop: rgb(255, 243, 177);
+$cardColorBottom: rgb(255, 236, 126);
+$formButton--bgcolor: rgb(0, 153, 255);
+$formButton--color: white;
+
+.contactForm {
+  background: linear-gradient(rgb(255, 245, 196), $cardColorBottom);
+  padding: $mdSpace 0;
+
+  @each $bp in portrait, landscape {
+    @include breakpoint($bp) {
+      &--formInput {
+        height: 60px;
+        position: relative;
+        margin: 2vw;
+        label {
+        color: rgb(201, 130, 0);
+          position: absolute;
+          top: -10px;
+          left: 0;
+          font-size: 4vw;
+        }
+        input {
+          width: 90%;
+          position: absolute;
+          top: 20px;
+          left: 5%;
+          font-size: 5vw;
+          background: rgba(0, 0, 0, 0);
+          border: none;
+          border-bottom: 1px solid black;
+          outline: none;
+          :active,
+          :focus {
+            background: rgba(0, 0, 0, 0);
+          }
+        }
+      }
+      .muted {
+        color: red;
+        font-weight: bold;
+        font-size: 2.4vw;
+        text-align: right;
+        margin: 0;
+      }
+      
+      &--button {
+        @include flex;
+        button {
+          border:none;
+          margin: $mdSpace 0;
+          padding: $smSpace $lgSpace;
+          border-radius: 10px;
+          background: $formButton--bgcolor;
+          color: $formButton--color;
+          font-size: 5vw;
+    
+          :hover, :active {
+            background: darken($formButton--bgcolor, 50%);
+          }
+        }
+      }
+    }  
+  }  
+  @include breakpoint(laptop) {
+    width: 140vw;
+    margin-right: $smSpace;
+
+    border-radius: 0 0 10px 10px;
+    margin-bottom: 0;
+    padding-bottom: $smSpace;
+
+    &--formInput {
+      height: 50px;
+      position: relative;
+      margin: 2vw;
+      label {
+      color: rgb(201, 130, 0);
+        position: absolute;
+        top: -10px;
+        left: 0;
+        font-size: 1vw;
+      }
+      input {
+        width: 90%;
+        position: absolute;
+        top: 20px;
+        left: 5%;
+        font-size: 1vw;
+        background: rgba(0, 0, 0, 0);
+        border: none;
+        border-bottom: 1px solid black;
+        outline: none;
+        :active,
+        :focus {
+          background: rgba(0, 0, 0, 0);
+        }
+      }
+    }
+    .muted {
+      color: red;
+      font-weight: bold;
+      font-size: 0.8vw;
+      text-align: right;
+      margin: 0;
+    }
+    
+    &--button {
+      @include flex(row, flex-end, center);
+      height: 50px;
+      width: 90%;
+
+      button {
+        width: 40%;
+        height: inherit;
+        color: $formButton--color;
+        border-radius: 10px;
+        background: $formButton--bgcolor;
+        border: none;
+      }
+    }
+  }
+}

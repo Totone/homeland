@@ -1,0 +1,15 @@
+@import '../../assets/style/mixins/breakpoint';
+
+.avatar {
+  border-radius: 50%;
+  width: 70vw;
+  
+  @include breakpoint(portrait) {
+    max-width: 360px;
+    max-height: 360px;
+  }
+  @include breakpoint(laptop) {
+    max-width: 420px;
+    max-height: 420px;
+  }
+}

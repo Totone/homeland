@@ -1,0 +1,93 @@
+@import '../../assets/style/mixins/flex';
+@import '../../assets/style/mixins/boxSize';
+$textInput--width: 100%;
+$textInput--height: 60px;
+
+$label-empty--positionTop: 30%;
+$label-filled--positionTop: -7px;
+$label--positionLeft: 30px;
+$label--padding: 0 3px;
+
+$label-empty--fontSize: 1.2em;
+$label-filled--fontSize: 1em;
+
+$label-focused--borderRadius: 10px;
+$label-unfocused--borderRadius: 2px;
+
+$label-filled--color: lightblue;
+$label-filled--bgColor: #FFF;
+
+$input--width: 90%;
+$input--color: black;
+$input--borderRadius: 2px;
+
+$darkblue: blue;
+//---------------------------------------------------------------------------\\
+
+#dedede {
+  height: 300px;
+}
+
+@mixin labelBehaviour(
+  $border-radius,
+  $top: $label-filled--positionTop,
+  $left: $label--positionLeft,
+  $padding: $label--padding,
+  $font-size: $label-filled--fontSize,
+  $color: $label-filled--color,
+  $background-color: $label-filled--bgColor
+) {
+  + label {
+    top: $top;
+    left: $left;
+    padding: $padding;
+    color: $color;
+    font-size: $font-size;
+    background-color: $background-color;
+    border-radius: $border-radius;
+  }
+}
+
+//---------------------------------------------------------------------------\\
+
+.textInput {
+  @include flex(row, center, center);
+  @include boxSize(90%, $textInput--height);
+  position: relative;
+  margin-bottom: 5px;
+
+  label {
+    position: absolute;
+    top: 22%;
+    left: $label--positionLeft;
+ 
+    color: $darkblue;
+    font-size: 1.2em;
+    padding: 0 3px;  
+    transition: .5s;
+  }
+
+  input {
+    width: 100%;
+    padding-left: $label--positionLeft;
+    min-width: 250px;
+    font-size: 1.2em;
+    color: black;    
+    background-color: #EEE;    
+
+    outline: none;
+    border-radius: $label-unfocused--borderRadius;
+    border: 1px solid #EEE;
+
+    &:focus, &:active {
+      background-color: #FFF;
+      box-shadow: none;
+      @include labelBehaviour($label-focused--borderRadius);
+    }
+
+    &:valid:not(:focus) {
+      @include labelBehaviour($label-unfocused--borderRadius);
+    }
+  }
+}
+

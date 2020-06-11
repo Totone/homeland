@@ -1,0 +1,7 @@
+@mixin flex($dir: row, $jc: center, $ai: center, $noWrap: false) {
+  display: flex;
+  flex-direction: $dir;
+  @if $noWrap != false { flex-wrap: unwrap; }
+  justify-content: $jc;
+  align-items: $ai;
+}

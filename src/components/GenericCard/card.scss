@@ -1,0 +1,84 @@
+@import '../../assets/style/mixins/breakpoint';
+@import '../../assets/style/mixins/flex';
+@import '../../assets/style/variables/spacing';
+
+$smSpace: map-get($spacing, sm);
+$cardWidth: 40vw;
+$cardHeaderFontSize: 4vw;
+
+$cardColorTop: rgb(255, 243, 177);
+$cardColorBottom: rgb(255, 225, 55);
+
+.card {
+  border: 1px solid rgb(219, 219, 184);
+  border-radius: 5px;
+  padding: $smSpace;
+  width: $cardWidth;
+  flex: 0 0 auto;
+  background: linear-gradient($cardColorTop, $cardColorBottom);
+
+  margin-right: $smSpace;
+  @include breakpoint(laptop) {
+    margin-right: 0;
+  }
+
+  @include flex(column, space-between, center);
+
+  header {
+    font-weight: bold;
+    font-size: $cardHeaderFontSize;
+    text-align: center;
+    color: rgb(201, 130, 0);
+    font-family: Indie Flower;
+  }
+
+  main {
+    text-align: center;
+    font-family: Roboto;
+    color:rgb(129, 84, 0);
+  }
+
+  .icon {
+    font-size: 7rem;
+    margin: 2vw;
+    &.db {
+      color: rgb(2, 110, 0);
+    }
+    &.front {
+      color: rgb(94, 228, 255);
+    }
+    &.back {
+      color: rgb(19, 170, 82);
+    }
+    &.tools {
+      color: rgb(102, 102, 102)
+    }
+    &.technology {
+      color: rgb(96, 212, 0)
+    }
+    &.architecture {
+      color: rgb(92, 92, 92)
+    }
+    &.practises {
+      color: rgb(61, 255, 223);
+    }
+    &.i18n {
+      color: rgb(0, 162, 255)
+    }
+    &.noJs {
+      color: rgb(172, 160, 0)
+    }
+    &.curiosity {
+      color: rgb(255, 42, 42)
+    } 
+  }
+
+  @include breakpoint(laptop) {
+  height: 500px;
+  width: 20vw;
+  margin-bottom: $smSpace;
+    header {
+      font-size: 2vw;
+    }
+  }
+}

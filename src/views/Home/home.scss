@@ -1,0 +1,80 @@
+@import '../../assets/style/mixins/breakpoint';
+@import '../../assets/style/mixins/flex';
+@import '../../assets/style/mixins/boxSize';
+@import '../../assets/style/variables/spacing';
+
+
+$cardColorTop: rgb(255, 243, 177);
+$cardColorBottom: rgb(255, 225, 55);
+$h1--fontSize: 13vw;
+$h3--fontSize: 6vw;
+$formInput--height: 60px;
+$formInput--margin: $smSpace;
+
+
+$home--bgcolor: linear-gradient($cardColorBottom, white);
+#home {
+  .onlyInLarge {
+    display: none;
+    @include breakpoint(laptop) {
+      display: block;
+    }
+  }
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background: $home--bgcolor;
+  padding: 0 2vw;
+  .meet {
+    @each $bp in (portrait, landscape) {
+      @include breakpoint($bp) {
+        @include flex(column, space-around, center);
+        @if $bp == portrait {
+          @include boxSize(100vw, 90vh);
+          min-height: 90vh;
+        }
+        h1 {
+          font-size: $h1--fontSize;
+          font-family: Caveat;
+          color:rgb(122, 80, 2);
+          text-align: center;
+        }
+        h3 {
+          font-size: $h3--fontSize;
+          text-align: center;
+          margin: 0 $mdSpace $smSpace $mdSpace;
+          color:rgb(90, 64, 17);
+          font-family: Dancing Script;
+        }
+      }
+    }
+    @include breakpoint(laptop) {
+      @include flex(column, space-around, center);
+      align-content: stretch;
+      @include boxSize(100vw, 90vh);
+
+
+      background: $home--bgcolor;
+      h1 {
+        font-size: 8vw;
+        font-family: Caveat;
+        color:rgb(122, 80, 2);
+        text-align: center;
+      }
+
+      :nth-child(2) {
+        display: none;
+      }
+
+      h3 {
+        font-size: 2vw;
+        text-align: center;
+        margin: 0 $mdSpace;
+        color:rgb(90, 64, 17);
+        font-family: Dancing Script;
+      }
+    }
+  }
+}
